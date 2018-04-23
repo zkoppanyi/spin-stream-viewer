@@ -33,6 +33,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deletePointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reloadPositionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -41,7 +42,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusSecond = new System.Windows.Forms.ToolStripStatusLabel();
-            this.reloadPositionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
@@ -100,6 +100,13 @@
             this.deletePointsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.deletePointsToolStripMenuItem.Text = "Delete points";
             this.deletePointsToolStripMenuItem.Click += new System.EventHandler(this.deletePointsToolStripMenuItem_Click);
+            // 
+            // reloadPositionsToolStripMenuItem
+            // 
+            this.reloadPositionsToolStripMenuItem.Name = "reloadPositionsToolStripMenuItem";
+            this.reloadPositionsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.reloadPositionsToolStripMenuItem.Text = "Reload positions";
+            this.reloadPositionsToolStripMenuItem.Click += new System.EventHandler(this.reloadPositionsToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -171,13 +178,6 @@
             this.toolStripStatusSecond.Size = new System.Drawing.Size(16, 17);
             this.toolStripStatusSecond.Text = "...";
             // 
-            // reloadPositionsToolStripMenuItem
-            // 
-            this.reloadPositionsToolStripMenuItem.Name = "reloadPositionsToolStripMenuItem";
-            this.reloadPositionsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.reloadPositionsToolStripMenuItem.Text = "Reload positions";
-            this.reloadPositionsToolStripMenuItem.Click += new System.EventHandler(this.reloadPositionsToolStripMenuItem_Click);
-            // 
             // GPSDataStreamWnd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,6 +188,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.map);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GPSDataStreamWnd";
             this.Text = "GPS Data Stream";

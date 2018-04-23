@@ -31,7 +31,7 @@ namespace OSUCalibrator
         private const String saveButtonTextStart = "E";
         private const String saveButtonTextStop = "E Stop";
         private string exportFolder = "";
-
+        private int timeLineGraphHeightDefault = 0;
 
         public TimeLineForm(Project project)
         {
@@ -53,6 +53,7 @@ namespace OSUCalibrator
             cmbFreq.Items.Add(1);
             cmbFreq.Items.Add(2);
             cmbFreq.SelectedItem = timeResolution;
+            timeLineGraphHeightDefault = timeLineGraph.Height;
 
         }
 
@@ -218,6 +219,7 @@ namespace OSUCalibrator
         private void SetTrackBarTime(DateTime time)
         {
             trackBar.Value = Convert.ToInt32((new TimeSpan(time.Ticks - minTime.Ticks)).TotalSeconds / timeResolution);
+            this.CurrentTime = time;
         }
 
         private DateTime GetTrackBarTime()
@@ -507,6 +509,20 @@ namespace OSUCalibrator
         private void cmbFreq_SelectedIndexChanged(object sender, EventArgs e)
         {
             timeResolution = Convert.ToDouble(cmbFreq.SelectedItem);
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            if (timeLineGraph.Visible == true)
+            {
+                timeLineGraph.Visible = false;
+                this.Height = this.Height - timeLineGraph.Height;
+            }
+            else
+            {
+                timeLineGraph.Visible = true;
+                this.Height = this.Height + timeLineGraphHeightDefault;
+            }
         }
     }
 }

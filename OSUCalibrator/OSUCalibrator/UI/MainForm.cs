@@ -100,8 +100,7 @@ namespace OSUCalibrator
         }
 
         private void MainForm_Load(object sender, EventArgs e)
-        {
-
+        {            
         }        
 
 
@@ -172,7 +171,11 @@ namespace OSUCalibrator
             if (result != DialogResult.OK) return;
 
             projectFolder = fdb.SelectedPath;
+            OpenProject(projectFolder);
+        }
 
+        public void OpenProject(String projectFolder)
+        {
             MainForm form = (MainForm)this.MdiParent;
             ProgressBarWnd wnd = new ProgressBarWnd();
             wnd.Text = "Loading project...";
@@ -191,13 +194,15 @@ namespace OSUCalibrator
                 try
                 {
                     Project = Project.Load(projectFolder, logger);
+                    Properties.Settings.Default["RecentlyOpenProject"] = projectFolder;
+                    Properties.Settings.Default.Save();
                 }
                 catch (OperationCanceledException)
                 {
                     logger.WriteLineInfo("Cancelled!");
                     eWorker.Cancel = true;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     logger.WriteLineInfo("Error occured: " + ex.Message);
                     eWorker.Cancel = true;
@@ -220,7 +225,6 @@ namespace OSUCalibrator
             };
 
             wnd.ShowDialog();
-
         }
 
         #endregion
@@ -313,7 +317,7 @@ namespace OSUCalibrator
             TransformToGlobal
         }
 
-        public void SampleLiDAR(DateTime timeStamp, LiDARTransformType type = LiDARTransformType.None)
+        public void SampleLiDAR(DateTime? timeStampIn = null, LiDARTransformType type = LiDARTransformType.None)
         {
             foreach (Form form in this.MdiChildren)
             {
@@ -321,7 +325,18 @@ namespace OSUCalibrator
                 {
 
                     VelodyneStreamWnd veloForm = form as VelodyneStreamWnd;
-                    veloForm.SetFrameByTime(timeStamp);
+
+                    DateTime timeStamp;
+                    if (timeStampIn != null)
+                    {
+                        veloForm.SetFrameByTime(timeStampIn.Value);
+                        timeStamp = timeStampIn.Value;
+                    }
+                    else
+                    {
+                        veloForm.NextFrame();
+                        timeStamp = veloForm.GetTime();
+                    }
 
                     List<VelodynePoint> pts = veloForm.GetPoints();
                     if (pts.Count() == 0) continue;
@@ -357,7 +372,7 @@ namespace OSUCalibrator
                         throw new NotImplementedException();
                     }
                     
-                    var hotFrameSubfix = timeStamp.ToString("HHmmss");
+                    var hotFrameSubfix = timeStamp.ToString("HHmmssfff");
                     var saveTo = this.Project.Folder + "\\" + Project.LiDARFrameFolder + "\\LiDAR_" + hotFrameSubfix + "_" + veloStream.ShortName + ".txt";
 
                     TextWriter tw = new StreamWriter(saveTo);
@@ -637,12 +652,14 @@ namespace OSUCalibrator
             {
                 try
                 {
-                    for (int k = 0; k < 100; k++)
+                    for (int k = 0; k < 1000; k++)
                     {
                         wnd.CancelTokenSource.Token.ThrowIfCancellationRequested();
-                        DateTime currentTime = startTime.AddSeconds(k);
-                        wnd.WriteLine("Time: " + currentTime.ToString("yyyy-MM-hh HH:mm:ss.fff"));
-                        this.SampleLiDAR(currentTime, LiDARTransformType.None);
+                        //DateTime currentTime = startTime.AddSeconds(k);
+                        //this.SampleLiDAR(currentTime, LiDARTransformType.None);
+                        this.SampleLiDAR();
+                        //wnd.WriteLine("Time: " + currentTime.ToString("yyyy-MM-hh HH:mm:ss.fff"));
+                        Thread.Sleep(100);
                     }
                 }
                 catch (OperationCanceledException)
@@ -664,6 +681,34 @@ namespace OSUCalibrator
             };
 
             wnd.ShowDialog();
+        }
+
+        private void loadPrevToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void loadPrevToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void fileToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default["RecentlyOpenProject"] != null)
+            {
+                string lastProject = (string)Properties.Settings.Default["RecentlyOpenProject"];
+                ToolStripMenuItem recentProjectMenu = new ToolStripMenuItem(lastProject, null, null, "recentlyOpenedProject");
+                recentProjectMenu.Click += RecentProjectMenu_Click;
+                loadPrevToolStripMenuItem.DropDownItems.Clear();
+                loadPrevToolStripMenuItem.DropDownItems.Add(recentProjectMenu);
+            }
+        }
+
+        private void RecentProjectMenu_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem recentProjectMenu = (ToolStripMenuItem)sender;
+            OpenProject(recentProjectMenu.Text);
         }
     }
 }

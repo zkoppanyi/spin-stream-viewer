@@ -54,6 +54,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listFiles = new System.Windows.Forms.ListBox();
             this.frameBox = new Cyotek.Windows.Forms.ImageBox();
+            this.importDigitizedPointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
@@ -79,13 +82,16 @@
             // 
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reloadDataStreamToolStripMenuItem,
+            this.toolStripSeparator1,
             this.showCurrentDataLineToolStripMenuItem,
             this.showCurrentStreamToolStripMenuItem,
-            this.showHotFramePropertyToolStripMenuItem});
+            this.showHotFramePropertyToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.importDigitizedPointsToolStripMenuItem});
             this.dataToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.dataToolStripMenuItem.Text = "Data";
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.dataToolStripMenuItem.Text = "Actions";
             // 
             // reloadDataStreamToolStripMenuItem
             // 
@@ -185,22 +191,22 @@
             // 
             // toolStripButton4
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(26, 22);
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton4.Text = "Up";
             this.toolStripButton4.ToolTipText = "Move file up";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton5
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(35, 22);
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton5.Text = "Dwn";
             this.toolStripButton5.ToolTipText = "Move video file down";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
@@ -218,11 +224,10 @@
             // 
             // btnDigitize1
             // 
-            this.btnDigitize1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnDigitize1.Image = ((System.Drawing.Image)(resources.GetObject("btnDigitize1.Image")));
             this.btnDigitize1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDigitize1.Name = "btnDigitize1";
-            this.btnDigitize1.Size = new System.Drawing.Size(42, 22);
+            this.btnDigitize1.Size = new System.Drawing.Size(58, 22);
             this.btnDigitize1.Text = "D (F1)";
             this.btnDigitize1.ToolTipText = "Digitize points... (F1)";
             this.btnDigitize1.Click += new System.EventHandler(this.btnDigitize1_Click);
@@ -296,10 +301,28 @@
             this.frameBox.Name = "frameBox";
             this.frameBox.Size = new System.Drawing.Size(490, 371);
             this.frameBox.TabIndex = 2;
+            this.frameBox.Click += new System.EventHandler(this.frameBox_Click);
             this.frameBox.Paint += new System.Windows.Forms.PaintEventHandler(this.frameBox_Paint);
             this.frameBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frameBox_KeyDown);
             this.frameBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.frameBox_MouseClick);
             this.frameBox.MouseEnter += new System.EventHandler(this.frameBox_MouseEnter_1);
+            // 
+            // importDigitizedPointsToolStripMenuItem
+            // 
+            this.importDigitizedPointsToolStripMenuItem.Name = "importDigitizedPointsToolStripMenuItem";
+            this.importDigitizedPointsToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.importDigitizedPointsToolStripMenuItem.Text = "Import digitized points...";
+            this.importDigitizedPointsToolStripMenuItem.Click += new System.EventHandler(this.importDigitizedPointsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
             // 
             // VideoStreamWnd
             // 
@@ -311,6 +334,7 @@
             this.Controls.Add(this.trackBar);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "VideoStreamWnd";
             this.Text = "Video";
@@ -360,5 +384,8 @@
         private System.Windows.Forms.ToolStripMenuItem showHotFramePropertyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reloadDataStreamToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnDigitize1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem importDigitizedPointsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

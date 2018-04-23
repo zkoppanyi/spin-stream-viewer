@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeSelectorWnd));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtYear = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtMonth = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtDay = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtHour = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtMinute = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtSecond = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtMinute = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtHour = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDay = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtMonth = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtYear = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -67,69 +68,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Time";
             // 
-            // txtYear
+            // txtSecond
             // 
-            this.txtYear.Location = new System.Drawing.Point(84, 19);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(115, 20);
-            this.txtYear.TabIndex = 3;
+            this.txtSecond.Location = new System.Drawing.Point(84, 149);
+            this.txtSecond.Name = "txtSecond";
+            this.txtSecond.Size = new System.Drawing.Size(115, 20);
+            this.txtSecond.TabIndex = 13;
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Year";
-            // 
-            // txtMonth
-            // 
-            this.txtMonth.Location = new System.Drawing.Point(84, 45);
-            this.txtMonth.Name = "txtMonth";
-            this.txtMonth.Size = new System.Drawing.Size(115, 20);
-            this.txtMonth.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Month";
-            // 
-            // txtDay
-            // 
-            this.txtDay.Location = new System.Drawing.Point(84, 71);
-            this.txtDay.Name = "txtDay";
-            this.txtDay.Size = new System.Drawing.Size(115, 20);
-            this.txtDay.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Day";
-            // 
-            // txtHour
-            // 
-            this.txtHour.Location = new System.Drawing.Point(84, 97);
-            this.txtHour.Name = "txtHour";
-            this.txtHour.Size = new System.Drawing.Size(115, 20);
-            this.txtHour.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Hour";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 152);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Seconds";
             // 
             // txtMinute
             // 
@@ -147,21 +100,69 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Minute";
             // 
-            // txtSecond
+            // txtHour
             // 
-            this.txtSecond.Location = new System.Drawing.Point(84, 149);
-            this.txtSecond.Name = "txtSecond";
-            this.txtSecond.Size = new System.Drawing.Size(115, 20);
-            this.txtSecond.TabIndex = 13;
+            this.txtHour.Location = new System.Drawing.Point(84, 97);
+            this.txtHour.Name = "txtHour";
+            this.txtHour.Size = new System.Drawing.Size(115, 20);
+            this.txtHour.TabIndex = 9;
             // 
-            // label6
+            // label4
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 152);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Seconds";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Hour";
+            // 
+            // txtDay
+            // 
+            this.txtDay.Location = new System.Drawing.Point(84, 71);
+            this.txtDay.Name = "txtDay";
+            this.txtDay.Size = new System.Drawing.Size(115, 20);
+            this.txtDay.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Day";
+            // 
+            // txtMonth
+            // 
+            this.txtMonth.Location = new System.Drawing.Point(84, 45);
+            this.txtMonth.Name = "txtMonth";
+            this.txtMonth.Size = new System.Drawing.Size(115, 20);
+            this.txtMonth.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Month";
+            // 
+            // txtYear
+            // 
+            this.txtYear.Location = new System.Drawing.Point(84, 19);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(115, 20);
+            this.txtYear.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Year";
             // 
             // button1
             // 
@@ -191,6 +192,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TimeSelectorWnd";
             this.Text = "Time selector...";
             this.Load += new System.EventHandler(this.TimeSelectorWnd_Load);

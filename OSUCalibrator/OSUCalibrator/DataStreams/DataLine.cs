@@ -102,7 +102,7 @@ namespace OSUCalibrator.DataStreams
 
         public override string ToString()
         {
-            return this.VideoFileName + " (" + this.TimeStamp.ToString("HH:mm:ss") + " length: " + ((1/FrameRate)*FrameCount/60.0).ToString("0.0") + " min)";
+            return this.VideoFileName + " (" + this.TimeStamp.ToString("HH:mm:ss.fff") + " length: " + ((1/FrameRate)*FrameCount/60.0).ToString("0.0") + " min)";
         }
     }
 

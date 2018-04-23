@@ -570,6 +570,67 @@ namespace OSUCalibrator
             }
         }
 
-       
+        private void frameBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void importDigitizedPointsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Stream stream = null;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((stream = openFileDialog1.OpenFile()) != null)
+                    {
+
+                        using (TextReader reader = new StreamReader(stream))
+                        {
+                            logger.WriteLineInfo(" ");
+                            logger.WriteLineInfo("Reading image points from " + openFileDialog1.FileName);
+                            ImageFeature imageFeature = (ImageFeature)CurrentHotFrame.GetImageFeatureByDataStream(dataStream);
+
+                            String line;
+                            int pointNum = 0;
+                            while ((line = reader.ReadLine()) != null)
+                            {
+                                String[] lineSplit = line.Split(',');
+
+                                if (lineSplit.Length < 2)
+                                {
+                                    MessageBox.Show("Wrong text format!", "Wrong Format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+
+                                int id = Convert.ToInt32(lineSplit[0]);
+                                double x = Convert.ToDouble(lineSplit[1]);
+                                double y = Convert.ToDouble(lineSplit[2]);
+
+                                ImagePoint imagePoint = new ImagePoint(id, (int)x, (int)y);
+                                logger.WriteLineInfo("Point #" + id + " x= " + x + " y= " + y);
+
+                                imageFeature.Points.Add(imagePoint);
+                                pointNum++;
+                            }
+
+                            frameBox.Refresh();
+                            logger.WriteLineInfo("# of imported points: " + pointNum);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+        }
     }
 }

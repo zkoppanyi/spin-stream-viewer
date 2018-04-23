@@ -384,6 +384,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License-LGPL.txt" />
+    <None Include="Resources\timeline.ico" />
     <None Include="Resources\point_marker_selected.png" />
     <None Include="Resources\point_marker.png" />
     <None Include="Resources\world2.png" />

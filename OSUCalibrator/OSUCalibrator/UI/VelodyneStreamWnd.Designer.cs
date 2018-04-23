@@ -102,7 +102,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton4.Text = "C";
-            this.toolStripButton4.ToolTipText = "Create Feature from Selection";
+            this.toolStripButton4.ToolTipText = "Create feature from selection";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton5

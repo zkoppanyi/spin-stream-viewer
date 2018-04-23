@@ -149,12 +149,22 @@ namespace OSUCalibrator
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void velodyneExportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             if (lstFrames.SelectedItems.Count > 0)
             {
                 var hotFrame = lstFrames.SelectedItems[0].Tag as HotFrame;
                 var mainForm = this.MdiParent as MainForm;
                 mainForm.SampleLiDAR(hotFrame.Timestamp);
             }
+        }
+
+        private void importDigitizedPointsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

@@ -30,75 +30,32 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrameWnd));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.lblInfo = new System.Windows.Forms.Label();
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstFrames = new System.Windows.Forms.ListView();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.velodyneExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButtonAddFrame = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonRemoveFrame = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonExport = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonInfo = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStripButtonAddFrame,
+            this.toolStripButtonRemoveFrame,
+            this.toolStripButtonExport,
+            this.toolStripButtonInfo});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(318, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Tag = "";
-            this.toolStripButton1.Text = "A";
-            this.toolStripButton1.ToolTipText = "Add frame";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "R";
-            this.toolStripButton2.ToolTipText = "Remove frame";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "E";
-            this.toolStripButton3.ToolTipText = "Export frame to Matlab";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "I";
-            this.toolStripButton4.ToolTipText = "Info...";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // lblInfo
             // 
@@ -122,9 +79,9 @@
             this.lstFrames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Date});
             this.lstFrames.GridLines = true;
-            this.lstFrames.Location = new System.Drawing.Point(0, 28);
+            this.lstFrames.Location = new System.Drawing.Point(0, 52);
             this.lstFrames.Name = "lstFrames";
-            this.lstFrames.Size = new System.Drawing.Size(318, 228);
+            this.lstFrames.Size = new System.Drawing.Size(318, 204);
             this.lstFrames.TabIndex = 0;
             this.lstFrames.UseCompatibleStateImageBehavior = false;
             this.lstFrames.View = System.Windows.Forms.View.List;
@@ -132,16 +89,76 @@
             this.lstFrames.Click += new System.EventHandler(this.lstFrames_Click);
             this.lstFrames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstFrames_MouseDoubleClick);
             // 
-            // toolStripButton5
+            // menuStrip1
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(24, 22);
-            this.toolStripButton5.Text = "VE";
-            this.toolStripButton5.ToolTipText = "Velodyne Export";
-            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dataToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(318, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // dataToolStripMenuItem
+            // 
+            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.velodyneExportToolStripMenuItem});
+            this.dataToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
+            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.dataToolStripMenuItem.Text = "Hot Frame";
+            // 
+            // velodyneExportToolStripMenuItem
+            // 
+            this.velodyneExportToolStripMenuItem.Name = "velodyneExportToolStripMenuItem";
+            this.velodyneExportToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.velodyneExportToolStripMenuItem.Text = "Velodyne Export...";
+            this.velodyneExportToolStripMenuItem.Click += new System.EventHandler(this.velodyneExportToolStripMenuItem_Click);
+            // 
+            // toolStripButtonAddFrame
+            // 
+            this.toolStripButtonAddFrame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAddFrame.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAddFrame.Image")));
+            this.toolStripButtonAddFrame.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddFrame.Name = "toolStripButtonAddFrame";
+            this.toolStripButtonAddFrame.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonAddFrame.Tag = "";
+            this.toolStripButtonAddFrame.Text = "A";
+            this.toolStripButtonAddFrame.ToolTipText = "Add frame";
+            this.toolStripButtonAddFrame.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButtonRemoveFrame
+            // 
+            this.toolStripButtonRemoveFrame.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRemoveFrame.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRemoveFrame.Image")));
+            this.toolStripButtonRemoveFrame.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRemoveFrame.Name = "toolStripButtonRemoveFrame";
+            this.toolStripButtonRemoveFrame.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonRemoveFrame.Text = "R";
+            this.toolStripButtonRemoveFrame.ToolTipText = "Remove frame";
+            this.toolStripButtonRemoveFrame.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripButtonExport
+            // 
+            this.toolStripButtonExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonExport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExport.Image")));
+            this.toolStripButtonExport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonExport.Name = "toolStripButtonExport";
+            this.toolStripButtonExport.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonExport.Text = "E";
+            this.toolStripButtonExport.ToolTipText = "Export frame to Matlab";
+            this.toolStripButtonExport.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripButtonInfo
+            // 
+            this.toolStripButtonInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonInfo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonInfo.Image")));
+            this.toolStripButtonInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonInfo.Name = "toolStripButtonInfo";
+            this.toolStripButtonInfo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonInfo.Text = "I";
+            this.toolStripButtonInfo.ToolTipText = "Info...";
+            this.toolStripButtonInfo.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // FrameWnd
             // 
@@ -150,12 +167,17 @@
             this.ClientSize = new System.Drawing.Size(318, 336);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lstFrames);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrameWnd";
             this.Text = "Frames";
             this.Load += new System.EventHandler(this.FrameWnd_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,13 +185,15 @@
 
         #endregion
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAddFrame;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRemoveFrame;
+        private System.Windows.Forms.ToolStripButton toolStripButtonExport;
+        private System.Windows.Forms.ToolStripButton toolStripButtonInfo;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.ColumnHeader Date;
         private System.Windows.Forms.ListView lstFrames;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem velodyneExportToolStripMenuItem;
     }
 }

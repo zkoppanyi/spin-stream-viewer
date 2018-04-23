@@ -44,6 +44,9 @@
             this.syncToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.syncToNOVATELToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.syncToSEPTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fromFileTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fromCurrentTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tieToGlobalFrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculateFiletimeAndGlobalTimeDifferenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.syncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,9 +64,6 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.btnDigitize = new System.Windows.Forms.ToolStripButton();
             this.frameBox = new Cyotek.Windows.Forms.ImageBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fromFileTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fromCurrentTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -130,8 +130,8 @@
             this.showHotFramePropertyToolStripMenuItem});
             this.dataToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.dataToolStripMenuItem.Text = "Data";
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.dataToolStripMenuItem.Text = "Actions";
             // 
             // showDataLinePropertyToolStripMenuItem
             // 
@@ -180,6 +180,29 @@
             this.syncToSEPTToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.syncToSEPTToolStripMenuItem.Text = "Sync to SEPT";
             this.syncToSEPTToolStripMenuItem.Click += new System.EventHandler(this.syncToSEPTFromFileToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fromFileTimeToolStripMenuItem,
+            this.fromCurrentTimeToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItem1.Text = "Sync Manually";
+            // 
+            // fromFileTimeToolStripMenuItem
+            // 
+            this.fromFileTimeToolStripMenuItem.Name = "fromFileTimeToolStripMenuItem";
+            this.fromFileTimeToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.fromFileTimeToolStripMenuItem.Text = "From File Time";
+            this.fromFileTimeToolStripMenuItem.Click += new System.EventHandler(this.fromFileTimeToolStripMenuItem_Click);
+            // 
+            // fromCurrentTimeToolStripMenuItem
+            // 
+            this.fromCurrentTimeToolStripMenuItem.Name = "fromCurrentTimeToolStripMenuItem";
+            this.fromCurrentTimeToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.fromCurrentTimeToolStripMenuItem.Text = "From Current Time";
+            this.fromCurrentTimeToolStripMenuItem.Click += new System.EventHandler(this.fromCurrentTimeToolStripMenuItem_Click);
             // 
             // tieToGlobalFrameToolStripMenuItem
             // 
@@ -268,18 +291,17 @@
             // 
             // btnDigitize1
             // 
-            this.btnDigitize1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnDigitize1.Image = ((System.Drawing.Image)(resources.GetObject("btnDigitize1.Image")));
             this.btnDigitize1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDigitize1.Name = "btnDigitize1";
-            this.btnDigitize1.Size = new System.Drawing.Size(42, 22);
+            this.btnDigitize1.Size = new System.Drawing.Size(58, 22);
             this.btnDigitize1.Text = "D (F1)";
             this.btnDigitize1.ToolTipText = "Digitize points... (F1)";
             this.btnDigitize1.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton7
             // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
             this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton7.Name = "toolStripButton7";
@@ -290,7 +312,7 @@
             // 
             // toolStripButton8
             // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
             this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton8.Name = "toolStripButton8";
@@ -354,29 +376,6 @@
             this.frameBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.frameBox_MouseClick);
             this.frameBox.MouseEnter += new System.EventHandler(this.frameBox_MouseEnter);
             this.frameBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frameBox_MouseMove);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fromFileTimeToolStripMenuItem,
-            this.fromCurrentTimeToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
-            this.toolStripMenuItem1.Text = "Sync Manually";
-            // 
-            // fromFileTimeToolStripMenuItem
-            // 
-            this.fromFileTimeToolStripMenuItem.Name = "fromFileTimeToolStripMenuItem";
-            this.fromFileTimeToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.fromFileTimeToolStripMenuItem.Text = "From File Time";
-            this.fromFileTimeToolStripMenuItem.Click += new System.EventHandler(this.fromFileTimeToolStripMenuItem_Click);
-            // 
-            // fromCurrentTimeToolStripMenuItem
-            // 
-            this.fromCurrentTimeToolStripMenuItem.Name = "fromCurrentTimeToolStripMenuItem";
-            this.fromCurrentTimeToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.fromCurrentTimeToolStripMenuItem.Text = "From Current Time";
-            this.fromCurrentTimeToolStripMenuItem.Click += new System.EventHandler(this.fromCurrentTimeToolStripMenuItem_Click);
             // 
             // ImageStreamWnd
             // 

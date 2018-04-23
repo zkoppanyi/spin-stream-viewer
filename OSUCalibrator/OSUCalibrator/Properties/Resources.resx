@@ -121,6 +121,9 @@
   <data name="timeline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\timeline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="point_marker_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\point_marker_selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="not_world1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\not_world1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,7 +160,7 @@
   <data name="point_marker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\point_marker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="point_marker_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\point_marker_selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="timeline1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\timeline.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

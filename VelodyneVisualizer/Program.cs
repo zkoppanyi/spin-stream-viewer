@@ -31,7 +31,7 @@ namespace SharpVelodyneTest
             Console.WriteLine("Conversion is done!");
             return;*/
 
-            Console.WriteLine("Done.");
+            Console.WriteLine("Loading done.");
             List<VelodynePoint> pts = new List<VelodynePoint>();
 
             using (VelodyneReader veloReader = VelodyneReader.Open(VelodyneSensorType.VLP16, ReturnMode.LastReturnOnly, indexFile, pointFile))
@@ -39,18 +39,24 @@ namespace SharpVelodyneTest
 
                 //veloReader.AnalysOffset();
 
-                IndexData idx = veloReader.FindIndexByTime(new DateTime(2017, 10, 13, 16, 45, 04, 0), VelodyneReader.SearchType.FLOOR);
-                veloReader.SeekByTime(new DateTime(2017, 10, 13, 16, 52, 04, 0));
+                IndexData idx = veloReader.FindIndexByTime(new DateTime(2017, 10, 13, 16, 51, 31, 0), VelodyneReader.SearchType.FLOOR);
+                veloReader.SeekByTime(new DateTime(2017, 10, 13, 16, 51, 31, 0));
                 Console.WriteLine(idx.PacketTimeStamp.ToString("yyyy-MM-dd HH:mm:ss") + " NMEA: " + idx.InternalTimeStamp.ToString("yyyy-MM-dd HH:mm:ss") + " Pos: " + idx.Position + " NMEA: " + idx.Nmea.NmeaString);
 
-                for (int k = 0; k < 1000; k++)
-                {
-                    VelodynePacket packet = veloReader.ReadNext();
 
-                    if (packet is VelodynePointPacket)
-                    {
-                        VelodynePointPacket pointPacket = packet as VelodynePointPacket;
-                    }
+                VelodynePacket packet = veloReader.ReadNext();
+
+                if (packet is VelodynePointPacket)
+                {
+                    VelodynePointPacket pointPacket = packet as VelodynePointPacket;
+
+                    Console.WriteLine("Packet timestamp: " + pointPacket.PacketTimestamp);
+                    int mm = Convert.ToInt32(Math.Floor(pointPacket.Points[0].InternalTime / 60.0));
+                    double ss = (pointPacket.Points[0].InternalTime - mm * 60);
+                    Console.WriteLine("Internal time: " + mm + " min " + ss + " s");
+                    DateTime ts = pointPacket.Points[0].Timestamp.Value;
+                    Console.WriteLine("Point timestamp: " + ts.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+
                 }
 
                 Console.WriteLine("done.");

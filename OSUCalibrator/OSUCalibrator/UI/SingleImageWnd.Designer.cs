@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SingleImageWnd));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.algorithmsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -78,7 +79,7 @@
             this.pictureBox.TabIndex = 3;
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             // 
-            // ImageWnd
+            // SingleImageWnd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -86,8 +87,9 @@
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "ImageWnd";
+            this.Name = "SingleImageWnd";
             this.Text = "ImageForm";
             this.Load += new System.EventHandler(this.ImageWnd_Load);
             this.menuStrip1.ResumeLayout(false);

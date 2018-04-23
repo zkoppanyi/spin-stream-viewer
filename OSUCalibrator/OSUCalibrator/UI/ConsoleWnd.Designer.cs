@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsoleWnd));
             this.textBoxConsole = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -40,7 +41,7 @@
             this.textBoxConsole.Name = "textBoxConsole";
             this.textBoxConsole.ReadOnly = true;
             this.textBoxConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxConsole.Size = new System.Drawing.Size(482, 321);
+            this.textBoxConsole.Size = new System.Drawing.Size(1141, 321);
             this.textBoxConsole.TabIndex = 0;
             this.textBoxConsole.TextChanged += new System.EventHandler(this.textBoxConsole_TextChanged);
             // 
@@ -48,8 +49,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 321);
+            this.ClientSize = new System.Drawing.Size(1141, 321);
             this.Controls.Add(this.textBoxConsole);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConsoleWnd";
             this.Text = "Console";
             this.Load += new System.EventHandler(this.ConsoleWnd_Load);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataStreamWnd));
             this.dataStreamList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(322, 402);
             this.Controls.Add(this.dataStreamList);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DataStreamWnd";
             this.Text = "Data Streams";
             this.Load += new System.EventHandler(this.DataStreamWnd_Load);

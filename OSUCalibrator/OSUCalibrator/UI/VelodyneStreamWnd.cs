@@ -27,6 +27,7 @@ namespace OSUCalibrator
         public bool HasToSetFrame { get; private set;  }
         public HotFrame CurrentHotFrame { get; private set; }
         private VelodyneReader veloReader;
+        private bool isFireScrollEvent = true;
 
         private ILogger logger;
 
@@ -202,7 +203,14 @@ namespace OSUCalibrator
             viewer.Render();
         }
 
-        public void SetFrameByTimeWithoutRender(DateTime time, HotFrame hotFrame)
+        public DateTime GetTime()
+        {
+            List<VelodynePoint> veloPts = viewer.GetPoints();
+            int idx = veloPts.Count / 2;
+            return veloPts[idx].Timestamp.Value; // this might cause exception, fix then
+        }
+
+        public void SetFrameByTimeWithoutRender(DateTime time, HotFrame hotFrame) 
         {
             CurrentHotFrame = hotFrame;
             time = time.AddSeconds(-18);
@@ -238,10 +246,26 @@ namespace OSUCalibrator
 
         private void trackBar_Scroll_1(object sender, EventArgs e)
         {
-            DateTime dt = new DateTime(trackBar.Value * TimeSpan.TicksPerSecond + idxStart.InternalTimeStamp.Ticks);
-            SetFrameByTimeWithoutRender(dt, null);
-            viewer.Render();
+            if (isFireScrollEvent)
+            {
+                DateTime time = GetTimeFromTrackBar();
+                SetFrameByTimeWithoutRender(time, null);
+                viewer.Render();
+            }
         }
+
+        private void SetTrackBarToTime(DateTime time)
+        {
+            isFireScrollEvent = false;
+            trackBar.Value = Convert.ToInt32((time.Ticks - idxStart.InternalTimeStamp.Ticks) / TimeSpan.TicksPerSecond);
+            isFireScrollEvent = true;
+        }
+
+        private DateTime GetTimeFromTrackBar()
+        {
+            return new DateTime(trackBar.Value * TimeSpan.TicksPerSecond + idxStart.InternalTimeStamp.Ticks); ;
+        }
+
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
@@ -261,6 +285,7 @@ namespace OSUCalibrator
         {
             CurrentHotFrame = frame;
             SetFrameByTimeWithoutRender(frame.Timestamp, frame);
+            SetTrackBarToTime(frame.Timestamp);
             viewer.Render();
         }
 

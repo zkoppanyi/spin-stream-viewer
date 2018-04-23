@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgressBarWnd));
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.textBoxConsole = new System.Windows.Forms.TextBox();
             this.button = new System.Windows.Forms.Button();
@@ -76,6 +77,7 @@
             this.Controls.Add(this.button);
             this.Controls.Add(this.textBoxConsole);
             this.Controls.Add(this.progressBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ProgressBarWnd";

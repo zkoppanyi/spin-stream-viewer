@@ -207,6 +207,16 @@ namespace OSUCalibrator
                         if (imageDataStream.EndTime > maxTime) maxTime = imageDataStream.EndTime;
                     }
                 }
+
+                if (dataStream is VelodyneDataStream)
+                {
+                    VelodyneDataStream veloDataStream = dataStream as VelodyneDataStream;
+                    if ((veloDataStream.StartTime != DateTime.MaxValue) && (veloDataStream.EndTime != DateTime.MaxValue))
+                    {
+                        if (veloDataStream.StartTime < minTime) minTime = veloDataStream.StartTime;
+                        if (veloDataStream.EndTime > maxTime) maxTime = veloDataStream.EndTime;
+                    }
+                }
             }
 
             double totalSecs = (new TimeSpan(maxTime.Ticks - minTime.Ticks)).TotalSeconds;

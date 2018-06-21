@@ -467,7 +467,6 @@ namespace SharpVelodyne
         private void Render(int sampling)
         {
             if ((viewPoints == null) || (viewPoints.Count == 0)) return;
-
             DateTime startTime = DateTime.Now;
 
             int width = viewPort.Width;
@@ -568,7 +567,8 @@ namespace SharpVelodyne
                     int refreshRate = Convert.ToInt32((double)viewPoints.Count() / 20.0);
                     if ((sampling == 1) && (ptk % 10 == 0))
                     {
-                        lblStatus.Invoke((MethodInvoker)(() => lblStatus.Text = ((double)ptk / (double)viewPoints.Count() * 100.0).ToString("0.0") + "%"));
+                        //lblStatus.Invoke((MethodInvoker)(() => lblStatus.Text = ((double)ptk / (double)viewPoints.Count() * 100.0).ToString("0.0") + "%"));
+                        lblStatus.Invoke((MethodInvoker)(() => lblStatus.Text +=  ""));
                     }
 
                 }
@@ -611,7 +611,13 @@ namespace SharpVelodyne
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             // Preview is done. Let's do the full resoltuion;
-            Render(1);
+            try
+            {
+                Render(1);
+            }catch
+            {
+
+            }
         }
 
         #endregion

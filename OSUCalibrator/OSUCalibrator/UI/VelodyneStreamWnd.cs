@@ -137,6 +137,17 @@ namespace OSUCalibrator
                 veloReader.Seek(idxStart);
                 viewer.Render();
 
+                // Update stream times
+                if (DataStream.DataLines.Count > 0)
+                {
+                    DateTime ts = (DataStream.DataLines[0] as VelodyneDataLine).TimeStamp;
+                    DateTime gpsTime = idxStart.Nmea.GPSTime;
+                    (DataStream.DataLines[0] as VelodyneDataLine).TimeStamp = (new DateTime(ts.Year, ts.Month, ts.Day, gpsTime.Hour, gpsTime.Minute, gpsTime.Second, gpsTime.Millisecond));
+                    (DataStream.DataLines[0] as VelodyneDataLine).Length = new TimeSpan(idxLast.InternalTimeStamp.Ticks - idxStart.InternalTimeStamp.Ticks);
+                    (DataStream.DataLines[0] as VelodyneDataLine).TimeType = TimeType.GPS;
+                }
+
+
             };
 
             wnd.ShowDialog();            

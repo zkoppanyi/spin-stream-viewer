@@ -31,7 +31,7 @@ namespace OSUCalibrator
         private BackgroundWorker yuvConverterWorker;
         //private String projectFolder = @"D:\CAR\2017_08_23_1"; // calibration 
         //private String projectFolder = @"D:\CAR\2017_08_21"; // calibration 
-        private String projectFolder = @"C:\CAR\2017_10_13"; // calibration 
+        private String projectFolder = @"E:\PN\2018_06_20_PN"; // calibration 
 
         public DateTime? GlobalTime { get { return TimeLineWnd != null ? (DateTime?)TimeLineWnd.CurrentTime : null;  } }
 

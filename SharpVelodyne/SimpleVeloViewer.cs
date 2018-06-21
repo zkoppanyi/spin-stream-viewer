@@ -489,6 +489,7 @@ namespace SharpVelodyne
             Bitmap bmp = new Bitmap(width, height);
             long ptk = 0;
 
+            VelodynePoint veloPoint = null;
             using (Graphics g = Graphics.FromImage(bmp))
             {
                 g.Clear(Color.Black);
@@ -516,7 +517,7 @@ namespace SharpVelodyne
 
                         if (pti.PointObject is VelodynePoint)
                         {
-                            VelodynePoint veloPoint = pti.PointObject as VelodynePoint;
+                            veloPoint = pti.PointObject as VelodynePoint;
                             SimpleVelodyneViewerColorMap colorMap = pti.ColorMap;
 
                             if (pti.IsSelected)
@@ -576,9 +577,9 @@ namespace SharpVelodyne
             if (viewPort.Image != null) viewPort.Image.Dispose();
             viewPort.Invoke((MethodInvoker)(() => viewPort.Image = bmp));
 
-            if (viewPoints[0].PointObject is VelodynePoint)
+
+            if (veloPoint != null)
             {
-                VelodynePoint veloPoint = viewPoints[0].PointObject as VelodynePoint;
                 DateTime endTime = DateTime.Now;
                 TimeSpan tsPan = new TimeSpan(Convert.ToInt64(veloPoint.InternalTime * TimeSpan.TicksPerSecond));
 
@@ -591,7 +592,13 @@ namespace SharpVelodyne
                 String its = tsPan.ToString(@"mm\:ss\.fff");
                 lblStatus.Invoke((MethodInvoker)(() => lblStatus.Text = "" + (endTime - startTime).TotalSeconds + "s (" + ptk / 1000 + "k)" +
                        " x: " + (cloudTransform.alpha / Math.PI * 180.0).ToString("0.0") + " y: " + (cloudTransform.beta / Math.PI * 180.0).ToString("0.0") + " z: " + (cloudTransform.kappa / Math.PI * 180.0).ToString("0.0") + " (" + its + "s) " + timeStamp));
+
             }
+            else
+            {
+                lblStatus.Invoke((MethodInvoker)(() => lblStatus.Text = "No point!"));
+            }
+
             workerDone.Set();
 
         }

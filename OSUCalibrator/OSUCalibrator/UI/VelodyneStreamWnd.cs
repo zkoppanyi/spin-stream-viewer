@@ -268,7 +268,13 @@ namespace OSUCalibrator
         private void SetTrackBarToTime(DateTime time)
         {
             isFireScrollEvent = false;
-            trackBar.Value = Convert.ToInt32((time.Ticks - idxStart.InternalTimeStamp.Ticks) / TimeSpan.TicksPerSecond);
+            int val = Convert.ToInt32((time.Ticks - idxStart.InternalTimeStamp.Ticks) / TimeSpan.TicksPerSecond);
+            if (val < 0)
+            {
+                logger.WriteLineWarning("Out of bound!");
+                return;
+            }
+            trackBar.Value = val;
             isFireScrollEvent = true;
         }
 

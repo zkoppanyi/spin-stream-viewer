@@ -652,14 +652,24 @@ namespace OSUCalibrator
             {
                 try
                 {
-                    for (int k = 0; k < 1000; k++)
+                    //for (double k = 0; k < 1000; k+=0.3)
+                    double k = 0;
+                    while (true)
                     {
-                        wnd.CancelTokenSource.Token.ThrowIfCancellationRequested();
+                        /*wnd.CancelTokenSource.Token.ThrowIfCancellationRequested();
                         //DateTime currentTime = startTime.AddSeconds(k);
                         //this.SampleLiDAR(currentTime, LiDARTransformType.None);
                         this.SampleLiDAR();
                         //wnd.WriteLine("Time: " + currentTime.ToString("yyyy-MM-hh HH:mm:ss.fff"));
+                        Thread.Sleep(100);*/
+
+
+                        wnd.CancelTokenSource.Token.ThrowIfCancellationRequested();
+                        DateTime currentTime = startTime.AddSeconds(k);
+                        this.SampleLiDAR(currentTime, LiDARTransformType.None);
+                        wnd.WriteLine("Time: " + currentTime.ToString("yyyy-MM-hh HH:mm:ss.fff"));
                         Thread.Sleep(100);
+                        k += 0.3;
                     }
                 }
                 catch (OperationCanceledException)

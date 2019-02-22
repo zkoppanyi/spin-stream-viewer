@@ -221,6 +221,11 @@ namespace SharpVelodyne
         public byte Intensity = 0;
 
         /// <summary>
+        /// Diod Id
+        /// </summary>
+        public int DiodId = -1;
+
+        /// <summary>
         /// Return type: strongest or last (valid for VLP-16, always strongest for HDL-32E)
         /// </summary>
         public ReturnType ReturnType { get; set; }
@@ -229,7 +234,7 @@ namespace SharpVelodyne
         /// <summary>
         /// Default constructor
         /// </summary>
-        public VelodynePoint() : this(0, 0, 0, 0, 0, 0, 0, ReturnType.StrongestReturn)
+        public VelodynePoint() : this(0, 0, 0, 0, 0, 0, 0, -1, ReturnType.StrongestReturn)
         {
            
         }
@@ -244,7 +249,8 @@ namespace SharpVelodyne
         /// <param name="Hz">Horizontal angle of firing</param>
         /// <param name="Vz">Vertical angle of firing</param>
         /// <param name="intensity">Intensity value</param>
-        public VelodynePoint(double X, double Y, double Z, double r, double Hz, double Vz, byte intensity, ReturnType returnType) : this(-1, null, X, Y, Z, r, Hz, Vz, intensity, returnType)
+        /// <param name="diodId">Diod ID</param>
+        public VelodynePoint(double X, double Y, double Z, double r, double Hz, double Vz, byte intensity, int diodId, ReturnType returnType) : this(-1, null, X, Y, Z, r, Hz, Vz, intensity, diodId, returnType)
         {
 
             this.Distance = r;
@@ -265,7 +271,8 @@ namespace SharpVelodyne
         /// <param name="Hz">Horizontal angle of firing</param>
         /// <param name="Vz">Vertical angle of firing</param>
         /// <param name="intensity">Intensity value</param>
-        public VelodynePoint(double internalTimestamp, DateTime? timeStamp, double X, double Y, double Z, double r, double Hz, double Vz, byte intensity, ReturnType returnType) : base(X, Y, Z)
+        /// <param name="diodId">Diod ID</param>
+        public VelodynePoint(double internalTimestamp, DateTime? timeStamp, double X, double Y, double Z, double r, double Hz, double Vz, byte intensity, int diodId, ReturnType returnType) : base(X, Y, Z)
         {
             this.InternalTime = internalTimestamp;
             this.Timestamp = timeStamp;
@@ -274,6 +281,7 @@ namespace SharpVelodyne
             this.Vz = Vz;
             this.Intensity = intensity;
             this.ReturnType = returnType;
+            this.DiodId = diodId;
         }
 
         /// <summary>

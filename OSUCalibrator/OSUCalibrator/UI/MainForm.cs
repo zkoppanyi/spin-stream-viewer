@@ -340,7 +340,8 @@ namespace OSUCalibrator
 
                     List<VelodynePoint> pts = veloForm.GetPoints();
                     if (pts.Count() == 0) continue;
-                    double[,] ptsMat = Matrix.Create<double>(4, pts.Count(), 0);
+
+                    /*double[,] ptsMat = Matrix.Create<double>(4, pts.Count(), 0);
 
                     for (int i = 0; i < pts.Count(); i++)
                     {
@@ -348,7 +349,7 @@ namespace OSUCalibrator
                         ptsMat[1, i] = pts[i].Y;
                         ptsMat[2, i] = pts[i].Z;
                         ptsMat[3, i] = 1;
-                    }
+                    }*/
 
                     var veloStream = veloForm.DataStream as VelodyneDataStream;
                     if ((veloStream.Tp == null) && (type != LiDARTransformType.None))
@@ -357,6 +358,7 @@ namespace OSUCalibrator
                         continue;
                     }
 
+                    /*
                     double[,] convPts = null;
 
                     if (type == LiDARTransformType.None)
@@ -370,20 +372,30 @@ namespace OSUCalibrator
                     else if (type == LiDARTransformType.TransformToGlobal)
                     {
                         throw new NotImplementedException();
-                    }
-                    
+                    }                    
+                    */
+
                     var hotFrameSubfix = timeStamp.ToString("HHmmssfff");
                     var saveTo = this.Project.Folder + "\\" + Project.LiDARFrameFolder + "\\LiDAR_" + hotFrameSubfix + "_" + veloStream.ShortName + ".txt";
 
                     TextWriter tw = new StreamWriter(saveTo);
-                    for (int i = 0; i < convPts.Columns(); i++)
+                    for (int i = 0; i < pts.Count; i++)
                     {
-                        for (int j = 0; j < 3; j++)
+                        this.ConsoleLogger.WriteLineInfo("Hz: " + pts[i].Hz);
+                        //if (pts[i].DiodId == 7)
                         {
-                            tw.Write(convPts[j, i] + " ");
+                            /*for (int j = 0; j < 3; j++)
+                            {
+                                tw.Write(convPts[j, i] + " ");
+                            }*/
+                            tw.Write(pts[i].X + " ");
+                            tw.Write(pts[i].Y + " ");
+                            tw.Write(pts[i].Z + " ");
+                            tw.Write(pts[i].Intensity + " ");
+                            tw.Write(pts[i].DiodId + " ");
+                            //tw.Write(pts[i].Hz + " ");
+                            tw.WriteLine();
                         }
-                        tw.Write(pts[i].Intensity);
-                        tw.WriteLine();
                     }
                     tw.Close();
                 }
@@ -720,5 +732,7 @@ namespace OSUCalibrator
             ToolStripMenuItem recentProjectMenu = (ToolStripMenuItem)sender;
             OpenProject(recentProjectMenu.Text);
         }
+
+        
     }
 }

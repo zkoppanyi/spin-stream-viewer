@@ -630,6 +630,25 @@ namespace OSUCalibrator
                 }
             }
         }
+
+        private void timeTagImagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            String tFile = project.Folder + "\\" + Project.MetadataFolder + "\\" + this.DataStream.ShortName + "_T.txt";
+
+            using (System.IO.StreamWriter file = new StreamWriter(tFile))
+            {
+                foreach (DataLine dataLine in this.DataStream.DataLines)
+                {
+                    ImageDataLine img = dataLine as ImageDataLine;                    
+                    String line = Utils.ConvertToUnixTimestamp(img.TimeStamp).ToString("F4") + " " + img.ImageFileName + " " + img.TimeStamp.ToString("yyyy MM dd HH mm ss.fff");
+                    file.WriteLine(line);                   
+                }
+            }
+
+            MessageBox.Show("Timetags are exported, see: " + tFile, "Timetag exported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
     }
 
     public class SyncToManuallyParams

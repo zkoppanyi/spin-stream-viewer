@@ -41,6 +41,7 @@
             this.showDataLinePropertyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showDataStreamPropertyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showHotFramePropertyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timeTagImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.syncToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.syncToNOVATELToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.syncToSEPTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,7 +128,8 @@
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDataLinePropertyToolStripMenuItem,
             this.showDataStreamPropertyToolStripMenuItem,
-            this.showHotFramePropertyToolStripMenuItem});
+            this.showHotFramePropertyToolStripMenuItem,
+            this.timeTagImagesToolStripMenuItem});
             this.dataToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
@@ -153,6 +155,13 @@
             this.showHotFramePropertyToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.showHotFramePropertyToolStripMenuItem.Text = "Show HotFrame Property...";
             this.showHotFramePropertyToolStripMenuItem.Click += new System.EventHandler(this.showHotFramePropertyToolStripMenuItem_Click);
+            // 
+            // timeTagImagesToolStripMenuItem
+            // 
+            this.timeTagImagesToolStripMenuItem.Name = "timeTagImagesToolStripMenuItem";
+            this.timeTagImagesToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.timeTagImagesToolStripMenuItem.Text = "Export times...";
+            this.timeTagImagesToolStripMenuItem.Click += new System.EventHandler(this.timeTagImagesToolStripMenuItem_Click);
             // 
             // syncToolStripMenuItem1
             // 
@@ -438,5 +447,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fromFileTimeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fromCurrentTimeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem timeTagImagesToolStripMenuItem;
     }
 }

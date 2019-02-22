@@ -129,16 +129,22 @@ namespace SharpVelodyne
                                 double distance = (double)BitConverter.ToUInt16(new byte[] { lower_distance, upper_distance }, 0) * 2.0 / 1000.00;
                                 byte intensity = packet[i + j + 2];
 
-                                double omega = firingAngle[j / 3];
+                                int diodId = j / 3;
+                                double omega = firingAngle[diodId];
                                 double omega_rad = omega / 180.0 * Math.PI;
                                 double azimuth_rad = azimuth / 180.0 * Math.PI;
+
+                                if (k == 1)
+                                {
+                                    azimuth_rad = azimuth / 180.0 * Math.PI + 0.0035;
+                                }
 
                                 // VLP-16
                                 double x = Math.Cos(azimuth_rad) * Math.Sin(omega_rad) * distance;
                                 double y = Math.Cos(azimuth_rad) * Math.Cos(omega_rad) * distance;
                                 double z = Math.Sin(azimuth_rad) * distance;
 
-                                VelodynePoint pt = new VelodynePoint(x, y, z, distance, azimuth_rad, omega_rad, intensity, returnType);
+                                VelodynePoint pt = new VelodynePoint(x, y, z, distance, azimuth_rad, omega_rad, intensity, diodId, returnType);
 
                                 pt.InternalTime = ts;
                                 if (dateTopOfTheHour != null)

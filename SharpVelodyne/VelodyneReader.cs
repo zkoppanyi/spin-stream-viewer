@@ -321,7 +321,7 @@ namespace SharpVelodyne
                     {
                         points.Add(pt);
                         if ((lastPoint != null) && ((pt.Hz - lastPoint.Hz) < 0))
-                        {
+                        {                            
                             isGo = false;
                             break;
                         }
